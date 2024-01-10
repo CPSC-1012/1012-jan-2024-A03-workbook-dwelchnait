@@ -1,5 +1,5 @@
 # Basic Starter Kit
 
-## Owner your name
+## Owner Don Welch
 
-alter this statement to indicate the usage of this repository
+This repo will hold my daily lecture practices for the CPSC1012 course.
