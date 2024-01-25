@@ -3,7 +3,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 Console.WriteLine("Hello, Cylinder Calculator\n");
 //This program will input a radius and length value for a cylinder then calculate
-//      and display the clyinder are and volume.
+//      and display the clyinder area and volume.
 
 //Plan
 //DECLARE inputValue as string
