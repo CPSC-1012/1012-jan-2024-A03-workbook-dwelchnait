@@ -48,11 +48,67 @@ if(int.TryParse(inputValue, out userChoice))
     //             T   F     T     one of the conditions is true
     //             F   T     T     one of the conditions is true
     //             F   F     F     both conditions MUST be false
+
+    //this validation is to determine if your data is within the
+    //  appropriate domain (acceptable value)
     //if (userChoice == 0 || userChoice == 1 || userChoice == 2)
     if (userChoice >= 0 && userChoice <= 2)
     {
         // a valid choice
         Console.WriteLine($"Your input of {userChoice} is a valid choice.");
+
+        //determine your flow of logic (critical path)
+
+        if (userChoice == 0)
+        {
+            if (machineChoice == 0)
+            {
+                Console.WriteLine("\n\nYou and the computer are both scissors. It is a draw");
+            }
+            if (machineChoice == 1)
+            {
+                Console.WriteLine("\n\nThe computer is a rock. You are scissors. You lose");
+            }
+            if (machineChoice == 2)
+            {
+                Console.WriteLine("\n\nThe computer is paper. You are scissors. You win");
+            }
+        }
+        if (userChoice == 1)
+        {
+            //there is a modified structure for if/else that allows you to 
+            //  execute one of a number of possible choices
+            //this modified if/else structure is the if / else if /else
+            if (machineChoice == 0)
+            {
+                Console.WriteLine("\n\nThe computer is scissors. You are rock. You win");
+            }
+            else if (machineChoice == 1)
+            {
+                Console.WriteLine("\n\nYou and the computer are both rocks. It is a draw");
+            }
+            else
+            {
+                Console.WriteLine("\n\nThe computer is a paper. You are rock. You lose");
+            }
+        }
+            
+        if (userChoice == 2)
+        {
+            if (machineChoice == 0)
+            {
+                Console.WriteLine("\n\nThe computer is scissors. You are paper. You lose");
+            }
+            else if (machineChoice == 1)
+            {
+                Console.WriteLine("\n\nThe computer is a rock. You are paper. You win");
+            }
+            else
+            {
+                Console.WriteLine("\n\nYou and the computer are paper. It is a draw");
+            }
+        }
+        
     }
     else
     {
