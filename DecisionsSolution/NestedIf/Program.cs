@@ -87,27 +87,63 @@ if(int.TryParse(inputValue, out userChoice))
             {
                 Console.WriteLine("\n\nYou and the computer are both rocks. It is a draw");
             }
+
             else
             {
                 Console.WriteLine("\n\nThe computer is a paper. You are rock. You lose");
             }
         }
-            
+
         if (userChoice == 2)
         {
-            if (machineChoice == 0)
+            //there is a structure reffered to as a case structure
+            //conditions:
+            //  a) there is a single argument to be check : machineChoice
+            //  b) that argument is check against a series of values: 0,1,2
+            //  c) the comparsion is EQUALS
+            //
+            //the C# command to use for a case structure is the switch
+            //syntax:
+            //      switch (argument)
+            //      {
+            //          case value:
+            //          {
+            //              C# logic to execute
+            //              break;
+            //          }
+            //          .
+            //          .
+            //          .
+            //          case value:
+            //          {
+            //              C# logic to execute
+            //              break;
+            //          }
+            //          default:
+            //          {
+            //              C# logic to execute
+            //              break;
+            //          }
+            //      }
+            switch (machineChoice)
             {
-                Console.WriteLine("\n\nThe computer is scissors. You are paper. You lose");
-            }
-            else if (machineChoice == 1)
-            {
-                Console.WriteLine("\n\nThe computer is a rock. You are paper. You win");
-            }
-            else
-            {
-                Console.WriteLine("\n\nYou and the computer are paper. It is a draw");
-            }
-        }
+                case 0:
+                {
+                    Console.WriteLine("\n\nThe computer is scissors. You are paper. You lose");
+                        break;
+                }
+                case 1:
+                {
+                    Console.WriteLine("\n\nThe computer is a rock. You are paper. You win");
+                    break;
+                }
+                default:
+                {
+                    Console.WriteLine("\n\nYou and the computer are paper. It is a draw");
+                    break;
+                }
+            }//eos
+        }//eof 15
         
     }
     else
@@ -115,8 +151,8 @@ if(int.TryParse(inputValue, out userChoice))
         // not a valid choice
         Console.WriteLine($"Your input of {userChoice} is not an acceptable choice.");
         //program should terminate
-    }
-}
+    }//eof 2
+}//eof 1
 else
 {
     Console.WriteLine($"Your input of {inputValue} is not number.");
