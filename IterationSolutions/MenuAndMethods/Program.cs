@@ -43,7 +43,7 @@ do
             }
         case "C":
             {
-                Console.WriteLine("\n\nyou choice item C\n");
+                SimpleCounterLoop();
                 break;
             }
         case "D":
@@ -105,8 +105,6 @@ void SimplePostTestLoop()
     //read in numbers while the number is not 0
     int num = 0;
     string inputValue = "";
-
-
     //loop
     //post-test is to ask the loop condition question AFTER executing
     //  the loop code at least once
@@ -123,7 +121,36 @@ void SimplePostTestLoop()
         {
             Console.WriteLine($"You entered the number:\t {num}");
         }
-
-
     } while (num != 0);
+}
+
+void SimpleCounterLoop()
+{
+    //demonstration the for loop
+    //the for loop is referred to as a counter loop structure
+    //we could duplicate the process using a while loop
+    //syntax:   for(initialize area; loop condition(s); increment area) { ... }
+
+    //count the coinage change you have in your pocket
+    string inputValue = "";
+    int numberOfCoins = 0;
+    double sumOfChange = 0.0;
+    string coinType = "";
+    //nickles,dimes,quarters,loonies,toonies
+    for(int counter=1; counter <= 5; counter++)
+    {
+        coinType = counter == 1 ? "nickels" :
+                    counter == 2 ? "dimes" :
+                    counter == 3 ? "quarters" :
+                    counter == 4 ? "loonies" : "toonies";
+
+        Console.Write($"Enter the number of {coinType} you have:\t");
+        inputValue =Console.ReadLine();
+        numberOfCoins = int.Parse(inputValue);
+        sumOfChange += counter == 1 ? numberOfCoins * 0.05 :
+                    counter == 2 ? numberOfCoins * 0.10 :
+                    counter == 3 ? numberOfCoins * 0.25 :
+                    counter == 4 ? numberOfCoins * 1.00 : numberOfCoins * 2.00;
+    }
+    Console.WriteLine($"You have ${sumOfChange.ToString("#,##0.00")} in change,");
 }
