@@ -48,7 +48,7 @@ do
             }
         case "D":
             {
-                Console.WriteLine("\n\nyou choice item B\n");
+                CharacterSearch();
                 break;
             }
         case "X":
@@ -153,4 +153,41 @@ void SimpleCounterLoop()
                     counter == 4 ? numberOfCoins * 1.00 : numberOfCoins * 2.00;
     }
     Console.WriteLine($"You have ${sumOfChange.ToString("#,##0.00")} in change,");
+}
+
+void CharacterSearch()
+{
+    string searchString = "";
+    char searchCharacter = ' ';
+    int timesFound = 0;
+    Console.Write("Enter the character string to search:\t");
+    searchString = Console.ReadLine();
+    Console.Write("Enter character for which to search:\t");
+    searchCharacter = char.Parse(Console.ReadLine());
+    //
+    // how long is the string? 
+    //      there is a set of properties that belong to the
+    //      string to which the coder has access: .Length
+    // how can on examine a single character in a string
+    //      there is a set of methods that belong to the
+    //      string of which the coder can use: .SubString(index, length)
+    //C# frequently uses 0 based indexing to location items
+    //  within the C# data structure
+    //For a string you can access a specific character via its position
+    //  within the string using the index
+
+    //              she sells seashells by the sea shore
+    //natural count 12345678....
+    //indexing      01234567....
+
+    int stringLength = searchString.Length; //number of natural count characters
+    for(int index = 0; index < stringLength;index++)
+    {
+        if (char.Parse(searchString.Substring(index,1)) == searchCharacter)
+        {
+            timesFound++;
+        }
+    }
+    Console.WriteLine($"\n\nYour character {searchCharacter} appears" +
+        $" {timesFound} in your string.");
 }
