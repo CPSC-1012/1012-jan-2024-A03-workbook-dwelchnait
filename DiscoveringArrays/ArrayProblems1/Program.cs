@@ -179,5 +179,14 @@ void Problem2() //method
     Console.WriteLine($"Student highest mark is {highestMark}");
     Console.WriteLine($"Student lowest mark is {lowestMark}");
 
+    //only process the elements within the array that have a student
+    // name
+    //this is determind by the logicalSize (natural count)
+
+    Console.WriteLine("{0,-20}{1,8}", "Student", "Mark");
+    for(int i = 0; i < logicalSize; i++)
+    {
+        Console.WriteLine("{0,-20}{1,8}", studentNames[i], nums[i]);
+    }
 }//return to the call statement
 
