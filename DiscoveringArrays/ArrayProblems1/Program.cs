@@ -183,10 +183,14 @@ void Problem2() //method
     // name
     //this is determind by the logicalSize (natural count)
 
-    Console.WriteLine("{0,-20}{1,8}", "Student", "Mark");
-    for(int i = 0; i < logicalSize; i++)
+    Console.WriteLine("{0,-20}{1,8}{2,6}", "Student", "Mark","P/F");
+    for (int i = 0; i < logicalSize; i++)
     {
-        Console.WriteLine("{0,-20}{1,8}", studentNames[i], nums[i]);
+        Console.WriteLine("{0,-20}{1,8}{2,6}",
+            studentNames[i], nums[i],
+            nums[i] < 50 ? "Fail" : "Pass");
+        //Console.WriteLine($"{ studentNames[i]} \t {nums[i]}" 
+        //    + $"\t {(nums[i] < 50 ? "Fail" : "Pass")}");
     }
 }//return to the call statement
 
