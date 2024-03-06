@@ -1,4 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System.Numerics;
+
 Console.WriteLine("Its a bunch of small Worlds (after all)!");
 
 //discover the components of a method
@@ -25,6 +27,7 @@ Console.WriteLine("Its a bunch of small Worlds (after all)!");
 int num1 = 0;
 int num2 = 0;
 double result = 0.0;
+string choice = "";
 
 //method call statement
 //this method is commonly referred to as a function
@@ -35,6 +38,38 @@ double result = 0.0;
 //this method is receiving a value (argument) via the call
 num1 = GetIntegerNumber("Enter you first calucation number:"); 
 num2 = GetIntegerNumber("Enter you second calucation number:");
+
+//get the desired calculator operation
+choice = GetCalculatorOperation();
+
+//using the operator choice, perform the requested operation
+switch (choice.ToLower())
+{
+    case "a":
+        {
+            result = Addition(num1, num2);
+            Console.WriteLine($"The sum of {num1} + {num2} = {(int)result}");
+
+            break;
+        }
+    case "s":
+        {
+            break;
+        }
+    case "m":
+        {
+            break;
+        }
+    case "d":
+        {
+            break;
+        }
+    default:
+        {
+            Console.WriteLine($"Your operator choice of >{choice}< is invalid");
+            break;
+        }
+}
 //end of driver
 
 //Methods Area
@@ -78,7 +113,16 @@ num2 = GetIntegerNumber("Enter you second calucation number:");
 //          WARNING any changes to the data at the original address
 //                  will be there when you return to the driver program
 
-int GetIntegerNumber(string prompt)
+//the use of the keyword "static" isolates the content of the method
+//      to within the method. It DOES NOT allow for global variables
+//      It forces the developer to properly scope the variables for 
+//      the method.
+//using static is an optional choice.
+//
+//FOR OUR COURSE TO ENSURE APPROPRIATE METHOD DEVELOPMENT, WE WILL USE
+//  THE KEYWORD "static" ON OUR METHODS
+
+static int GetIntegerNumber(string prompt)
 {
     //any variable declared within this method
     //   "dies" when the method terminates (scope)
@@ -94,4 +138,30 @@ int GetIntegerNumber(string prompt)
     //this method must return an integer value
     //keyword -> return value;
     return localNumber;
+}
+
+static string GetCalculatorOperation()
+{
+    //any variable declared within this method has no association
+    //  with any variable outside of the method
+    //variables within a method may have the same name as a variable
+    //  outside of the method
+    //these variables are independent (restriction due to "static")
+
+    //NOTE: NO VALIDATION IS BEING DONE IN THESE EXAMPLES
+    
+    string choice = "";
+    Console.WriteLine("Calculator Operations");
+    Console.WriteLine("a: Addition");
+    Console.WriteLine("s: Subtration");
+    Console.WriteLine("m: Multiplation");
+    Console.WriteLine("d: Division");
+    Console.Write("Enter your operator choice:\t");
+
+    choice = Console.ReadLine();
+    return choice;
+}
+static int Addition(int num1, int num2)
+{
+    return num1 + num2;
 }
