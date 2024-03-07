@@ -54,14 +54,34 @@ switch (choice.ToLower())
         }
     case "s":
         {
+            result = Subtraction(num1, num2);
+            Console.WriteLine($"The difference of {num1} - {num2} = {(int)result}");
+
             break;
         }
     case "m":
         {
+            result = Multiplication(num1, num2);
+            Console.WriteLine($"The product of {num1} * {num2} = {(int)result}");
+
             break;
         }
     case "d":
         {
+            //one should not divide by zero
+            if ( num2 == 0)
+            {
+                result= 0.0;
+                Console.WriteLine($"Division by zero is undefined.");
+            }
+            else
+            {
+                result = Division(num1, num2);
+                Console.WriteLine($"The quotion of {num1} - {num2} = {result:#,##0.00}");
+            }
+          
+          
+
             break;
         }
     default:
@@ -134,6 +154,7 @@ static int GetIntegerNumber(string prompt)
     inputValue = Console.ReadLine();
     localNumber = int.Parse(inputValue);
 
+
     //the method has stated a return datatype of int
     //this method must return an integer value
     //keyword -> return value;
@@ -163,5 +184,27 @@ static string GetCalculatorOperation()
 }
 static int Addition(int num1, int num2)
 {
+    //the parameters num1 and num2 are considered declared for 
+    //      the method
+    //these parameter/variables "live" as long as the method is
+    //      executing
+    //once the method is finished executing the local parameter/variables
+    //      cease to exist, they "die"
+    //the parameters in this method are "value-type" parameters
+    //therefore they receive a "copy" of the value from the call statement
+    //Any alteration of the local copies DO NOT affect the original values
     return num1 + num2;
+}
+
+static int Subtraction(int num1, int num2)
+{
+    return num1 - num2;
+}
+static int Multiplication(int num1, int num2)
+{
+    return num1 * num2;
+}
+static double Division(int num1, int num2)
+{
+    return (double)num1 / (double)num2;
 }
